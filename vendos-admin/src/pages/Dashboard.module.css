@@ -1,0 +1,749 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.statCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+}
+
+.statLabel {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.statValue {
+  font-family: var(--font-head);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.statChange {
+  font-size: 11px;
+}
+
+.section {}
+
+.sectionHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.sectionTitle {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.slotGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.slotCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.slotCard:hover {
+  border-color: var(--purple);
+  transform: translateY(-2px);
+}
+
+.slotCard.empty { border-color: var(--danger); opacity: 0.8; }
+.slotCard.low   { border-color: var(--warn); }
+.slotCard.off   { opacity: 0.4; }
+
+.slotTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.slotId {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.badge {
+  font-size: 9px;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badgeOk     { background: rgba(46,204,113,0.12); color: var(--success); }
+.badgeDanger { background: rgba(231,76,60,0.12);  color: var(--danger);  }
+.badgeWarn   { background: rgba(243,156,18,0.12); color: var(--warn);    }
+.badgeOff    { background: var(--border); color: var(--text-muted); }
+
+.slotEmoji {
+  font-size: 28px;
+  margin-bottom: 8px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.slotImgTile {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.slotName {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.slotPrice {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.barWrap {
+  height: 3px;
+  background: var(--border);
+  border-radius: var(--radius-full);
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.4s ease;
+}
+
+.slotCount {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.panelHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.panelTitle {
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.saleRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition);
+}
+
+.saleRow:hover { background: rgba(255,255,255,0.02); }
+.saleRow:last-child { border: none; }
+
+.saleDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--purple);
+  flex-shrink: 0;
+}
+
+.saleInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.saleName { font-size: 13px; }
+
+.saleSlot {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.salePrice {
+  font-family: var(--font-head);
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.saleTime {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 1024px) {
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+  .slotGrid  { grid-template-columns: repeat(3, 1fr); }
+  .networkGrid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .networkGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .statsGrid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .slotGrid  { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .networkGrid { grid-template-columns: 1fr; }
+}
+
+/* Sliding Drawer Styles */
+.drawerOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
+  background: rgba(20, 20, 24, 0.98);
+  border-left: 1px solid var(--border);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.drawer.drawerOpen {
+  right: 0;
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.drawerTitle {
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.drawerCloseBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition);
+}
+
+.drawerCloseBtn:hover {
+  color: var(--text);
+}
+
+.drawerBody {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.drawerImageWrap {
+  width: 100%;
+  height: 180px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.drawerImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.drawerNoImage {
+  font-size: 40px;
+}
+
+.drawerField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.drawerLabel {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.drawerValue {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.drawerValueAccent {
+  font-family: var(--font-head);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.drawerProgressWrap {
+  margin-top: 5px;
+}
+
+.drawerProgressBar {
+  height: 8px;
+  background: var(--border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.drawerProgressFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.4s ease;
+}
+
+.drawerProgressText {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.drawerFooter {
+  padding: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 12px;
+}
+
+.drawerEditBtn {
+  flex: 1;
+  padding: 12px;
+  background: var(--purple);
+  border: none;
+  border-radius: var(--radius-md);
+  color: #000000;
+  font-weight: 600;
+  font-size: 13px;
+  transition: filter var(--transition);
+}
+
+.drawerEditBtn:hover {
+  filter: brightness(1.1);
+}
+
+.drawerCloseActionBtn {
+  padding: 12px 18px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  transition: background var(--transition);
+}
+
+.drawerCloseActionBtn:hover {
+  background: var(--border);
+}
+
+@media (max-width: 480px) {
+  .drawer {
+    max-width: 100vw;
+    right: -100vw;
+  }
+}
+
+/* Multiple Vending Machine Selector & Management Panel */
+.networkPanel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.networkHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.networkTitle {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+}
+
+.networkGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.machineCard {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.machineCard:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.02);
+  border-color: var(--text-muted);
+}
+
+.machineCardActive {
+  background: rgba(212, 255, 58, 0.03) !important;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 12px rgba(212, 255, 58, 0.15);
+}
+
+.machineMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.machineNameWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.machineId {
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.machineName {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.statusPill {
+  font-size: 9px;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.statusOnline {
+  background: rgba(46, 204, 113, 0.1);
+  color: var(--success);
+}
+
+.statusOffline {
+  background: rgba(139, 148, 158, 0.1);
+  color: var(--text-muted);
+}
+
+.statusMaintenance {
+  background: rgba(210, 153, 34, 0.1);
+  color: var(--warn);
+}
+
+.machineFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  padding-top: 8px;
+}
+
+.machineLoc {
+  font-size: 10px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 170px;
+}
+
+.deleteBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+}
+
+.deleteBtn:hover {
+  background: rgba(248, 81, 73, 0.15);
+  color: var(--danger);
+}
+
+.addBtn {
+  background: var(--purple);
+  color: #000000;
+  border: none;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: opacity var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.addBtn:hover {
+  opacity: 0.9;
+}
+
+/* Modal Form Styles */
+.modalFormWrap {
+  margin-top: 8px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.01);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.formLabel {
+  font-size: 9px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.formInput {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 6px 8px;
+  font-size: 12px;
+  color: var(--text);
+  outline: none;
+}
+
+.formInput:focus {
+  border-color: var(--accent);
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.formBtnSubmit {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.formBtnCancel {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.formBtnCancel:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.unassigned {
+  border: 1px dashed var(--border) !important;
+  background: transparent !important;
+  opacity: 0.65;
+}
+
+.unassigned:hover {
+  border-color: var(--accent) !important;
+  opacity: 1;
+}
+
+.slotEmojiUnassigned {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 24px;
+}
+
+.slotNameUnassigned {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 8px;
+}
+
+.slotEmptyDesc {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 4px;
+}
+
+.miniStatSimple {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: default;
+}
+
+.miniCount {
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--font-head);
+}
+
+.lockedGridPlaceholder {
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.lockedGridPlaceholder h3 {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: 16px;
+  color: var(--text);
+}
+
+.lockedGridPlaceholder p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}

@@ -1,0 +1,73 @@
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  cursor: pointer;
+  transition: all var(--transition);
+  user-select: none;
+}
+
+.card:hover  { border-color: var(--purple); transform: translateY(-2px); }
+.card:active { transform: translateY(0); }
+
+.card.empty  { border-color: var(--danger);  opacity: 0.8; }
+.card.low    { border-color: var(--warn); }
+.card.off    { opacity: 0.45; }
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.slotId {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.emoji {
+  font-size: 28px;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.name {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.price {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.barWrap {
+  height: 3px;
+  background: var(--border);
+  border-radius: var(--radius-full);
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.4s ease;
+  min-width: 3px;
+}
+
+.count {
+  font-size: 10px;
+  color: var(--text-muted);
+}

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* GitHub Dark Mode Color System */
+  --bg:          #0D1117;
+  --surface:     #161B22;
+  --card:        #161B22;
+  --border:      #30363D;
+
+  --accent:      #D4FF3A;
+  --purple:      #D4FF3A;
+
+  --success:     #2EA44F;
+  --warn:        #D29922;
+  --danger:      #F85149;
+
+  --text:        #C9D1D9;
+  --text-muted:  #8B949E;
+
+  --font-head:   'Inter', sans-serif;
+  --font-body:   'Inter', sans-serif;
+
+  --radius-sm:   4px;
+  --radius-md:   6px;
+  --radius-lg:   8px;
+  --radius-xl:   12px;
+  --radius-full: 9999px;
+
+  --transition:  0.12s ease;
+}

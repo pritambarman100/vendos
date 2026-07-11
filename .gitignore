@@ -1,0 +1,12 @@
+# Dependency directories
+**/node_modules/
+**/.expo/
+**/dist/
+
+# Local Environment Variables
+**/.env
+**/.env.local
+
+# Device specific/OS logs
+.DS_Store
+Thumbs.db

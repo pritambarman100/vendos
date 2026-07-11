@@ -1,0 +1,52 @@
+.layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebarWrap { display: flex; }
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.overlay {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .sidebarWrap {
+    position: fixed;
+    inset: 0;
+    z-index: 199;
+    pointer-events: none;
+  }
+
+  .sidebarWrap.open {
+    pointer-events: all;
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 198;
+    animation: fadeIn 0.2s ease;
+  }
+}
+
+@media (max-width: 480px) {
+  .content { padding: 16px; }
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }

@@ -1,0 +1,15 @@
+.page { max-width: 520px; display: flex; flex-direction: column; gap: 16px; }
+.panel { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+.panelHead { padding: 14px 18px; border-bottom: 1px solid var(--border); }
+.panelTitle { font-family: var(--font-head); font-size: 14px; font-weight: 600; }
+.panelBody  { padding: 18px; display: flex; flex-direction: column; gap: 14px; }
+.field {}
+.label { display: block; font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 5px; }
+.input {
+  width: 100%; background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius-md); padding: 9px 12px;
+  font-size: 13px; color: var(--text); font-family: var(--font-body); outline: none;
+}
+.input:focus { border-color: var(--purple); }
+.toggleRow { padding: 10px 12px; background: var(--bg); border-radius: var(--radius-md); border: 1px solid var(--border); }
+.saveRow { display: flex; justify-content: flex-end; }

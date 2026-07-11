@@ -1,0 +1,302 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.tab {
+  font-size: 12px;
+  padding: 7px 16px;
+  border-radius: var(--radius-full);
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.active {
+  border-color: var(--purple) !important;
+  color: var(--purple) !important;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.statCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+}
+
+.statLabel {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.statValue {
+  font-family: var(--font-head);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.statChange { font-size: 11px; }
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.panelHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.panelTitle {
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.panelBody {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 120px;
+}
+
+.barCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.bar {
+  width: 100%;
+  background: var(--border);
+  border-radius: 4px 4px 0 0;
+  min-height: 4px;
+  transition: height 0.4s ease;
+}
+
+.barLit { background: var(--purple) !important; }
+
+.barLabel {
+  font-size: 9px;
+  color: var(--text-muted);
+}
+
+.warnBadge {
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(243,156,18,0.12);
+  color: var(--warn);
+  font-weight: 600;
+}
+
+.productRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.rank {
+  font-family: var(--font-head);
+  font-size: 13px;
+  color: var(--text-muted);
+  width: 24px;
+  padding-top: 2px;
+  flex-shrink: 0;
+}
+
+.productInfo { flex: 1; }
+
+.productTop {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.productName { font-size: 13px; }
+
+.productRev {
+  font-family: var(--font-head);
+  font-size: 13px;
+  color: var(--accent);
+}
+
+.barWrap {
+  height: 4px;
+  background: var(--border);
+  border-radius: var(--radius-full);
+  margin-bottom: 4px;
+}
+
+.barFill {
+  height: 100%;
+  background: var(--purple);
+  border-radius: var(--radius-full);
+}
+
+.units {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.slowRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.slowRow:last-child { border: none; }
+.slowName { font-size: 13px; }
+.slowNote { font-size: 12px; color: var(--text-muted); }
+
+@media (max-width: 768px) {
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Export actions styling */
+.exportHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.btnGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.exportBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 12px;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.exportBtn:hover {
+  border-color: var(--purple);
+  background: rgba(123, 110, 246, 0.05);
+}
+
+.chartContainer {
+  width: 100%;
+  height: 250px;
+  margin-top: 10px;
+}
+
+/* Inventory depletion velocity styling */
+.velocityItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-sizing: border-box;
+}
+
+.velocityHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.velocityValue {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.velocityBar {
+  height: 6px;
+  background: var(--border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.velocityFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--purple), var(--danger));
+  border-radius: var(--radius-full);
+  transition: width 0.4s ease;
+}
+
+.velocityMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 18px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .twoCol {
+    grid-template-columns: 1fr;
+  }
+}
+
+.threeCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .threeCol {
+    grid-template-columns: 1fr;
+  }
+}

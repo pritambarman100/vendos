@@ -1,0 +1,14 @@
+.toolbar {
+  display: flex; gap: 6px; flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.tab {
+  font-size: 12px; padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: all var(--transition);
+}
+.tab:hover { color: var(--text); border-color: var(--border-hover); }
+.active { border-color: var(--purple) !important; color: var(--purple) !important; background: var(--purple-dim) !important; }

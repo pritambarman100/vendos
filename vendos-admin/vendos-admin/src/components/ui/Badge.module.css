@@ -1,0 +1,21 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.sm { font-size: 9px;  padding: 2px 7px; }
+.md { font-size: 10px; padding: 3px 9px; }
+.lg { font-size: 12px; padding: 4px 12px; }
+
+.default { background: var(--card);        color: var(--text-muted); border: 1px solid var(--border); }
+.ok      { background: var(--success-dim); color: var(--success); }
+.low     { background: var(--warn-dim);    color: var(--warn); }
+.empty   { background: var(--danger-dim);  color: var(--danger); }
+.off     { background: var(--card);        color: var(--text-dim); }
+.accent  { background: var(--accent-dim);  color: var(--accent); }
+.purple  { background: var(--purple-dim);  color: var(--purple); }

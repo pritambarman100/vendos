@@ -1,0 +1,294 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.panelHead {
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.panelTitle {
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 4px 0;
+}
+
+.panelSubtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Table Header styling */
+.tableHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition);
+  border-left: 3px solid transparent;
+}
+
+.row:hover {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+/* GitHub Alert Highlights */
+.dangerRow {
+  border-left-color: var(--danger);
+  background: rgba(248, 81, 73, 0.03);
+}
+.dangerRow:hover {
+  background: rgba(248, 81, 73, 0.05);
+}
+
+.warnRow {
+  border-left-color: var(--warn);
+  background: rgba(210, 153, 34, 0.02);
+}
+.warnRow:hover {
+  background: rgba(210, 153, 34, 0.04);
+}
+
+.emojiCol {
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.slotImgTile {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.productCol {
+  flex: 2;
+  min-width: 150px;
+}
+
+.name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.unnamed {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.slotId {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.category {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.stockCol {
+  flex: 2;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stockText {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.barWrap {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--transition);
+}
+
+.statusCol {
+  flex: 1;
+  min-width: 100px;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border: 1px solid transparent;
+}
+
+.badgeDanger {
+  background: rgba(248, 81, 73, 0.1);
+  color: var(--danger);
+  border-color: rgba(248, 81, 73, 0.2);
+}
+
+.badgeWarn {
+  background: rgba(210, 153, 34, 0.1);
+  color: var(--warn);
+  border-color: rgba(210, 153, 34, 0.2);
+}
+
+.badgeOk {
+  background: rgba(46, 204, 113, 0.1);
+  color: var(--success);
+  border-color: rgba(46, 204, 113, 0.2);
+}
+
+.actionsCol {
+  flex: 2;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.input {
+  width: 75px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 6px 8px;
+  font-size: 12px;
+  color: var(--text);
+  outline: none;
+  font-family: var(--font-body);
+  transition: border-color var(--transition);
+}
+
+.input:focus {
+  border-color: var(--purple);
+}
+
+.btn {
+  padding: 6px 12px;
+  background: var(--success);
+  color: #ffffff;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.btn:hover {
+  background: #2c974b;
+}
+
+.maxBtn {
+  padding: 6px 10px;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.maxBtn:hover {
+  border-color: var(--text-muted);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.fullText {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding-right: 8px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .tableHeader {
+    display: none;
+  }
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 16px;
+  }
+  .emojiCol {
+    display: none;
+  }
+  .productCol, .stockCol, .statusCol, .actionsCol {
+    min-width: 0;
+    flex: none;
+    width: 100%;
+  }
+  .actionsCol {
+    justify-content: flex-start;
+    margin-top: 4px;
+    border-top: 1px dashed var(--border);
+    padding-top: 10px;
+  }
+  .input {
+    flex: 1;
+  }
+  .btn, .maxBtn {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+  }
+}

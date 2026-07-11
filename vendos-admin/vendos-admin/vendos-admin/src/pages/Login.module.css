@@ -1,0 +1,13 @@
+.page { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; background: var(--bg); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 36px 32px; width: 100%; max-width: 380px; }
+.logo { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+.logoIcon { width: 36px; height: 36px; background: var(--accent); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; }
+.logoText { font-family: var(--font-head); font-size: 18px; font-weight: 700; }
+.heading { font-family: var(--font-head); font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+.sub  { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+.hint { font-size: 11px; color: var(--text-muted); background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 8px 12px; margin-bottom: 20px; }
+.field { margin-bottom: 14px; }
+.label { display: block; font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 6px; }
+.input { width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 10px 12px; font-size: 13px; color: var(--text); font-family: var(--font-body); outline: none; margin-bottom: 0; }
+.input:focus { border-color: var(--purple); }
+.error { font-size: 12px; color: var(--danger); margin-bottom: 12px; }
