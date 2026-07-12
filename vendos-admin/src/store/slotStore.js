@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import axios from 'axios'
 
-const BACKEND_URL = `http://${window.location.hostname}:5000`
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || `http://${window.location.hostname}:5000`
 
 const generateDefaultSlots = (dbSlots) => {
   const defaultSlots = {};
