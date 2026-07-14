@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 // Base URL of your backend (default fallback)
-export let BASE_URL = 'http://10.244.110.218:5000'
+export let BASE_URL = 'https://vendos-4.onrender.com'
 
 export const loadBaseUrl = async () => {
   try {
@@ -29,10 +29,10 @@ export const saveBaseUrl = async (url) => {
         cleanUrl = `http://${cleanUrl}`
       }
 
-      // Auto-append port :5000 if not present
+      // Auto-append port :5000 if not present (only for local IPs/localhost, not for cloud or HTTPS URLs)
       const protocolLength = cleanUrl.startsWith('https://') ? 8 : 7;
       const hostAndPort = cleanUrl.substring(protocolLength);
-      if (!hostAndPort.includes(':')) {
+      if (!hostAndPort.includes(':') && !cleanUrl.includes('onrender.com') && !cleanUrl.startsWith('https://')) {
         cleanUrl = `${cleanUrl}:5000`
       }
     }
