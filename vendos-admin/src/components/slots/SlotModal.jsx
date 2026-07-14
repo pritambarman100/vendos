@@ -3,8 +3,6 @@ import { Upload, Package, Tag, Hash, Grid, ToggleLeft, Percent, X } from 'lucide
 import { useSlotStore } from '../../store/slotStore'
 import styles from './SlotModal.module.css'
 import imageCompression from 'browser-image-compression';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { storage } from '../../config/firebase';
 
 const CATEGORIES = ['Drinks', 'Snacks', 'Food', 'Stationery', 'Other']
 const OFFER_TYPES = ['% Discount', 'Flat Off (₹)', 'Buy X Get Y Free']
@@ -157,26 +155,6 @@ const SlotModal = ({ slot, onClose }) => {
     let finalImageUrl = image
 
     try {
-      if (imageFile) {
-        try {
-          console.log("Uploading image to Firebase Storage with 5s timeout...", imageFile);
-          const storageRef = ref(storage, `vending_products/${Date.now()}_${imageFile.name || 'image.jpg'}`);
-          const uploadPromise = (async () => {
-            const snapshot = await uploadBytes(storageRef, imageFile);
-            return await getDownloadURL(snapshot.ref);
-          })();
-
-          const timeoutPromise = new Promise((_, reject) =>
-            setTimeout(() => reject(new Error("Firebase upload timeout")), 5000)
-          );
-
-          finalImageUrl = await Promise.race([uploadPromise, timeoutPromise]);
-          console.log("Firebase Upload Success! URL:", finalImageUrl);
-        } catch (uploadError) {
-          console.warn("⚠️ Firebase Storage upload failed or timed out. Falling back to local base64 URL", uploadError.message || uploadError);
-          finalImageUrl = image;
-        }
-      }
 
       const numStock = Number(stock)
       const numMax = Number(max)
