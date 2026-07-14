@@ -2,56 +2,6 @@ const Slot = require('../models/Slot');
 const Machine = require('../models/Machine');
 const Sale = require('../models/Sale');
 const Setting = require('../models/Setting');
-const fs = require('fs');
-const path = require('path');
-
-// Helper function to save base64 image locally if it's sent from the client
-const saveBase64ImageLocally = (base64Str, slotNumber) => {
-    if (!base64Str || !base64Str.startsWith('data:image/')) {
-        return base64Str;
-    }
-    try {
-        const matches = base64Str.match(/^data:([a-zA-Z0-9]+\/[a-zA-Z0-9-.+]+);base64,(.+)$/);
-        if (!matches || matches.length !== 3) {
-            return base64Str;
-        }
-
-        const mimeType = matches[1];
-        const base64Data = matches[2];
-        const buffer = Buffer.from(base64Data, 'base64');
-
-        let ext = 'png';
-        if (mimeType.includes('jpeg') || mimeType.includes('jpg')) ext = 'jpg';
-        else if (mimeType.includes('webp')) ext = 'webp';
-        else if (mimeType.includes('gif')) ext = 'gif';
-
-        const filename = `${Date.now()}-${slotNumber.toLowerCase()}.${ext}`;
-        const uploadsDir = path.join(__dirname, '../uploads');
-
-        if (!fs.existsSync(uploadsDir)) {
-            fs.mkdirSync(uploadsDir, { recursive: true });
-        }
-
-        const filePath = path.join(uploadsDir, filename);
-        fs.writeFileSync(filePath, buffer);
-
-        console.log(`💾 Saved base64 image locally for slot ${slotNumber} at ${filePath}`);
-        return `/uploads/${filename}`;
-    } catch (error) {
-        console.error(`❌ Error saving base64 image locally for slot ${slotNumber}:`, error.message);
-        return base64Str;
-    }
-};
-const cloudinary = require('cloudinary').v2;
-
-// Configure Cloudinary only if credentials are set in environment
-if (process.env.CLOUDINARY_CLOUD_NAME && process.env.CLOUDINARY_API_KEY && process.env.CLOUDINARY_API_SECRET) {
-    cloudinary.config({
-        cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-        api_key: process.env.CLOUDINARY_API_KEY,
-        api_secret: process.env.CLOUDINARY_API_SECRET
-    });
-}
 
 const dispenseQueues = {};
 
@@ -120,24 +70,6 @@ exports.saveSlot = async (req, res) => {
 
         // Cloudinary Image Upload Flow
         let finalImageUrl = image;
-        if (image && image.startsWith('data:image/')) {
-            if (process.env.CLOUDINARY_CLOUD_NAME && process.env.CLOUDINARY_API_KEY && process.env.CLOUDINARY_API_SECRET) {
-                try {
-                    console.log(`📡 Uploading base64 image to Cloudinary for slot ${final_slot_id}...`);
-                    const uploadResult = await cloudinary.uploader.upload(image, {
-                        folder: 'vendos_products'
-                    });
-                    finalImageUrl = uploadResult.secure_url;
-                    console.log(`✅ Upload success. Secure URL: ${finalImageUrl}`);
-                } catch (cloudinaryError) {
-                    console.error("❌ Cloudinary Upload Failed. Falling back to storing Base64 locally:", cloudinaryError.message);
-                    finalImageUrl = saveBase64ImageLocally(image, final_slot_id);
-                }
-            } else {
-                console.warn("⚠️ Cloudinary credentials not configured in backend .env. Storing Base64 locally.");
-                finalImageUrl = saveBase64ImageLocally(image, final_slot_id);
-            }
-        }
 
         const numericStock = Number(stock) || 0;
         const numericMax = Number(max_capacity) || 20;
